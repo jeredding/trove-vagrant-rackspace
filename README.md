@@ -1,6 +1,7 @@
-cdb-public-vagrant
+trove-vagrant-rackspace
 =====================
-
+Vagrant configuration setup for the OpenStack Trove setup
+____________
 get started
 -------------
 I've removed the submodule process and made it more brute force on purpose.
