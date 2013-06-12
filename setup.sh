@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -d public ]; then
-  rm -rf public/
+  rm -rf public/*
 else
   mkdir public
 fi
@@ -19,7 +19,7 @@ git clone git@github.com:stackforge/reddwarf-integration.git
 git clone git@github.com:stackforge/reddwarf.git
 
 popd
-if [ ! $(vagrant plugin list  | grep vagrant-rackspace > /dev/null) ]; then
+if [  $(vagrant plugin list  | grep vagrant-rackspace > /dev/null) ]; then
   vagrant plugin install vagrant-rackspace
 fi
 
