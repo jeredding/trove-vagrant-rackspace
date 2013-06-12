@@ -23,14 +23,25 @@ popd
 if [  $(vagrant plugin list  | grep vagrant-rackspace > /dev/null) ]; then
   vagrant plugin install vagrant-rackspace
 fi
-
 echo "I need to know about your rackspace account to set up the vagrantfile:"
-echo -n "Username: "
-read USERNAME
-echo -n "API Key: " 
-read APIKEY
-echo -n "Tenant ID: "
-read TENANTID
+if [ -z $RS_USERNAME ]; then
+  echo -n "Username: "
+  read USERNAME
+else
+  USERNAME=$RS_USERNAME
+fi
+if [ -z $RS_APIKEY ]; then
+  echo -n "API Key: " 
+  read APIKEY
+else
+  APIKEY=$RS_APIKEY
+fi
+if [ -z $RS_TENANTID ]; then 
+  echo -n "Tenant ID: "
+  read TENANTID
+else 
+  TENANTID=$RS_TENANTID
+fi
 
 cat $VAGRANT_TEMPLATE | sed -e "s/USERNAME/$USERNAME/" -e "s/APIKEY/$APIKEY/" -e "s/TENANTID/$TENANTID/" > Vagrantfile
 
