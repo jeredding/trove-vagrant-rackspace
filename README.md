@@ -10,6 +10,10 @@ the setup.sh will prompt you for your Rackspace account information:
 * API Key
 * Tenant ID (also called Cloud Account Number on the API Access page)
 
+First, add the vagrant dummy box:
+> vagrant box add dummy https://github.com/mitchellh/vagrant-rackspace/raw/master/dummy.box
+
+Then run setup:
 > $ ./setup.sh
 > 
 > ... enter your stuff... 
